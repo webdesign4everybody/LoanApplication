@@ -206,7 +206,7 @@
             })
 
             $.ajax({
-                url: "https://localhost:44360/api/Values/GetLoanRequests",
+                url: "https://loanappapi101.azurewebsites.net/api/Values/GetLoanRequests",
                 type: "POST",
                 headers: { // Use 'headers', not 'header'
                     "Accept": "application/json;odata=verbose",
@@ -319,7 +319,7 @@
         })
 
         $.ajax({
-            url: "https://localhost:44360/api/Values/GetLoanHistory",
+            url: "https://loanappapi101.azurewebsites.net/api/Values/GetLoanHistory",
             type: "POST",
             headers: { // Use 'headers', not 'header'
                 "Accept": "application/json;odata=verbose",
@@ -415,7 +415,7 @@
             });
 
             $.ajax({
-                url: "https://localhost:44360/api/Values/ValidateLogin",
+                url: "https://loanappapi101.azurewebsites.net/api/Values/ValidateLogin",
                 type: "POST",
                 headers: { // Use 'headers', not 'header'
                     "Accept": "application/json;odata=verbose",
@@ -464,7 +464,7 @@
             });
 
             $.ajax({
-                url: "https://localhost:44360/api/Values/CreateAccount",
+                url: "https://loanappapi101.azurewebsites.net/api/Values/CreateAccount",
                 type: "POST",
                 headers: { // Use 'headers', not 'header'
                     "Accept": "application/json;odata=verbose",
@@ -613,7 +613,7 @@
                     EndDate: document.getElementById('LastDate').textContent,
                 })
                 $.ajax({
-                    url: "https://localhost:44360/api/Values/SubmitLoanRequest",
+                    url: "https://loanappapi101.azurewebsites.net/api/Values/SubmitLoanRequest",
                     type: "POST",
                     headers: { // Use 'headers', not 'header'
                         "Accept": "application/json;odata=verbose",
@@ -712,7 +712,7 @@
 
         let data = JSON.stringify({ Status: 'Approved', LoanID: loanID })
         $.ajax({
-            url: "https://localhost:44360/api/Values/ApproveRejectLoanRequests",
+            url: "https://loanappapi101.azurewebsites.net/api/Values/ApproveRejectLoanRequests",
             type: "POST",
             headers: { // Use 'headers', not 'header'
                 "Accept": "application/json;odata=verbose",
@@ -753,7 +753,7 @@
         let loanID = $('#rejectBtn').val();
         let data = JSON.stringify({ Status: 'Rejected', LoanID: loanID })
         $.ajax({
-            url: "https://localhost:44360/api/Values/ApproveRejectLoanRequests",
+            url: "https://loanappapi101.azurewebsites.net/api/Values/ApproveRejectLoanRequests",
             type: "POST",
             headers: { // Use 'headers', not 'header'
                 "Accept": "application/json;odata=verbose",
@@ -795,7 +795,7 @@
         let loanID = $('#rejectBtn').val();
         let data = JSON.stringify({ Status: 'Rejected', LoanID: loanID })
         $.ajax({
-            url: "https://localhost:44360/api/Values/ApproveRejectLoanRequests",
+            url: "https://loanappapi101.azurewebsites.net/api/Values/ApproveRejectLoanRequests",
             type: "POST",
             headers: { // Use 'headers', not 'header'
                 "Accept": "application/json;odata=verbose",
