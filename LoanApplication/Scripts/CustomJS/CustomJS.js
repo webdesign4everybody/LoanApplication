@@ -10,7 +10,7 @@
         let hash = window.location.hash;
         if (hash == '#/') {
             $("#root").html(`<div>
-            <h2>Login</h2>
+            <h2>Login Page</h2>
             <div>
                 <label for="txtEmail">Email:</label>
                 <input type="text" id="loginEmail" />
