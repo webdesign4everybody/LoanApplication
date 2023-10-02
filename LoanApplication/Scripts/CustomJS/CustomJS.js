@@ -9,73 +9,211 @@
     function renderContent() {
         let hash = window.location.hash;
         if (hash == '#/') {
-            $("#root").html(`<div>
-            <h2>Login Page</h2>
-            <div>
-                <label for="txtEmail">Email:</label>
-                <input type="text" id="loginEmail" />
-            </div>
-            <div>
-                <label for="txtPassword">Password:</label>
-                <input type="password" id="loginPassword" />
-            </div>
-            <div>
-                <button id="btnLogin">Login</button>
-            </div>
-            <div>
-                <p>New to Easy Loan? Create account in 5mins.</p>
-                <button id="btnSignUp">Sign Up</button>
-            </div>
-        </div>`)
+            $("#root").html(`<style>
+    /* Apply some basic styling to create a clean login form layout */
+    div.login-form {
+        text-align: center;
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    div.login-form h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    div.login-form div {
+        margin-bottom: 10px;
+    }
+
+    label.login-label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    input.login-input {
+        width: 100%;
+        padding: 10px;
+    }
+
+    button.login-button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    p.login-text {
+        margin-top: 10px;
+    }
+
+    /* Style the "Sign Up" button */
+    button#btnSignUp {
+        background-color: #28A745;
+    }
+</style>
+
+<div class="login-form">
+    <h2>Login</h2>
+    <div>
+        <label class="login-label" for="loginEmail">Email:</label>
+        <input class="login-input" type="text" id="loginEmail" />
+    </div>
+    <div>
+        <label class="login-label" for="loginPassword">Password:</label>
+        <input class="login-input" type="password" id="loginPassword" />
+    </div>
+    <div>
+        <button class="login-button" id="btnLogin">Login</button>
+    </div>
+    <div>
+        <p class="login-text">New to Easy Loan? Create an account in 5 mins.</p>
+        <button class="login-button" id="btnSignUp">Sign Up</button>
+    </div>
+</div>
+`)
         }
         else if (hash == '#/SignUp') {
             $("#root").html(`<div>
-            <h2>Sign Up</h2>
-            <div>
-                <label for="txtFName">First Name:</label>
-                <input type="text" id="fname" />
-            </div>
-            <div>
-                <label for="txtFName">Middle Name:</label>
-                <input type="text" id="mname" />
-            </div>
-             <div>
-                <label for="txtFName">Last Name:</label>
-                <input type="text" id="lname" />
-            </div>
-            <div>
-                <label for="txtFName">DOB:</label>
-                <input type="date" id="dob" />
-            </div>
-             <div>
-                <label for="txtFName">Email:</label>
-                <input type="text" id="email" />
-            </div>
-            <div>
-                <label for="txtFName">PAN No.:</label>
-                <input type="text" id="pan" />
-            </div>
-            <div>
-                <label for="txtFName">Mobile No.:</label>
-                <input type="text" id="mob" />
-            </div>
-            <div>
-                <label for="txtFName">Password:</label>
-                <input type="text" id="pass1" />
-            </div>
-            <div>
-                <label for="txtFName">Re-enter Password:</label>
-                <input type="text" id="pass2" />
-            </div>
-            <div>
-                <button id="btnSubmit">Submit</button>&nbsp;<button id="btnSubmitCancel">Cancel</button>
-            </div>
-            </div>`);
+            <style>
+    /* Apply some basic styling to create a clean layout */
+    div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: inline-block;
+        width: 150px; /* Adjust the width as needed for alignment */
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="tel"] {
+        width: 200px; /* Adjust the width as needed */
+    }
+
+    /* Style the buttons */
+    #btnSubmit,
+    #btnSubmitCancel {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #btnSubmitCancel {
+        background-color: #ccc;
+    }
+</style>
+
+<div>
+    <h2>Sign Up</h2>
+    <div>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" />
+    </div>
+    <div>
+        <label for="mname">Middle Name:</label>
+        <input type="text" id="mname" />
+    </div>
+    <div>
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" />
+    </div>
+    <div>
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" />
+    </div>
+    <div>
+        <label for="pan">PAN No.:</label>
+        <input type="text" id="pan" maxlength="10" />
+    </div>
+    <div>
+        <label for="mob">Mobile No.:</label>
+        <input type="tel" id="mob" maxlength="10" />
+    </div>
+    <div>
+        <label for="pass1">Password:</label>
+        <input type="password" id="pass1" />
+    </div>
+    <div>
+        <label for="pass2">Re-enter Password:</label>
+        <input type="text" id="pass2" />
+    </div>
+    <div>
+        <button id="btnSubmit">Submit</button>
+        <button id="btnSubmitCancel">Cancel</button>
+    </div>
+</div>
+`);
         }
         else if (hash == '#/AdminLogin') {
             if (sessionStorage.length > 0) {
                 getAdminLoanRequest('Approved');
-                $("#root").html(`<div>
+                $("#root").html(`<style>
+    /* Style for the container */
+    div.container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Style for the radio buttons section */
+    div#radioButtons {
+        margin-bottom: 20px;
+    }
+
+    /* Style for each radio button */
+    div#radioButtons input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    /* Style for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Style for table header */
+    th {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px;
+    }
+
+    /* Style for table cells */
+    td, th {
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 8px;
+    }
+
+    /* Style for even rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Style for the log out button */
+    #btnLogOut {
+        background-color: #DC3545;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
+
+                <div>
                 <div id='radioButtons'>
                    <input type="radio" id="approvedStatus" name="status" value="Approved" />
                    <label for="approvedStatus">Approved Loan Request</label>
@@ -119,7 +257,71 @@
         }
         else if (hash == '#/UserLogin') {
             if (sessionStorage.length > 0) {
-                $("#root").html(`<div>
+                $("#root").html(`<style>
+    /* Style for the container */
+    div.container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Style for the heading and button */
+    div.heading-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin-right: 20px;
+    }
+
+    /* Style for the button */
+    #btnGetLoan {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    /* Style for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Style for table header */
+    th {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px;
+    }
+
+    /* Style for table cells */
+    td, th {
+        border: 1px solid #ccc;
+        text-align: center;
+        padding: 8px;
+    }
+
+    /* Style for even rows */
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Style for the log out button */
+    #btnLogOut {
+        background-color: #DC3545;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
+
+                
+                <div>
                 <div>
                     <h2>Previous Loan Information</h2>&nbsp;&nbsp;&nbsp;<button id="btnGetLoan">Get Loan</button>
                     <table>
@@ -131,8 +333,10 @@
                                 <th>Apply Date</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
+                                <th>Balance Loan Amount</th>
                                 <th>Status</th>
                                  <th>Re-Payment Status</th>
+                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody id="tblPreviousLoan">
@@ -154,7 +358,50 @@
         }
         else if (hash == '#/GetLoan') {
             if (sessionStorage.length > 0) {
-                $("#root").html(`<div>
+                $("#root").html(`<style>
+    /* Style for the container */
+    div.container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Style for the heading */
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    /* Style for the label and input container */
+    div.input-container {
+        margin-bottom: 10px;
+    }
+
+    /* Style for the label */
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    /* Style for the input field */
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    /* Style for the buttons */
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+</style>
+
+                
+                <div>
             <h2>Request Loan</h2>
             <div>
                 <div>
@@ -171,6 +418,77 @@
             <button id="btnGetLoanInfo">Calculate</button>&nbsp;<button id="btnGetLoanCancel">Cancel</button>
             <div id='tempLoanInfo'></div>
             </div>`);
+            }
+            else {
+                $("#root").html(`<div>
+                    You are not authorised, please login again<br/>
+                    <button id="btnHome">Home</button>
+                </div>`);
+            }
+        }
+        else if (hash == '#/RepayLoan') {
+            if (sessionStorage.length > 0) {
+                $("#root").html(`<style>
+    /* Style for the container */
+    div.container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Style for the heading */
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    /* Style for the label and input container */
+    div.input-container {
+        margin-bottom: 10px;
+    }
+
+    /* Style for the label */
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    /* Style for the input field */
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    /* Style for the buttons */
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+</style>
+
+                
+                <div>
+            <h2>Re-Pay Loan</h2>
+            <div>
+                <div>
+                    <label>Loan ID</label>
+                    <input id='payLoanID' type='text' disabled/>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <label>Loan Amount</label>
+                    <input id='payLoanAmount' type='text'/>
+                </div>
+            </div>
+            <button id="btnPayLoan">Submit</button>&nbsp;<button id="btnPayLoanCancel">Cancel</button>
+            `);
+
+                $('#payLoanID').val(sessionStorage.getItem('selectedLoanID'));
             }
             else {
                 $("#root").html(`<div>
@@ -356,6 +674,9 @@
                         const endDateCell = document.createElement('td');
                         endDateCell.textContent = loan.LoanEndDate;
 
+                        const balanceCell = document.createElement('td');
+                        balanceCell.textContent = loan.LoanAmount - loan.RePaidAmount;
+
                         const statusCell = document.createElement('td');
                         statusCell.textContent = loan.LoanStatus;
 
@@ -369,6 +690,7 @@
                         row.appendChild(applyDate);
                         row.appendChild(startDateCell);
                         row.appendChild(endDateCell);
+                        row.appendChild(balanceCell);
                         row.appendChild(statusCell);
                         row.appendChild(repaystatusCell);
 
@@ -379,6 +701,8 @@
                             repayBtn.textContent = 'Pay';
                             repayBtn.id = 'repayBtn';
                             repayBtn.value = loan.LoanId;
+                            repayBtn.setAttribute('data-emi', loan.EMIAmount);
+                            repayBtn.setAttribute('data-balance', loan.LoanAmount - loan.RePaidAmount);
 
                             // Append the container div to the td element
                             row.appendChild(repayBtn);
@@ -658,7 +982,51 @@
 
     $("#root").on("click", "#btnGetLoanInfo", function (e) {
         e.preventDefault();
-        $("#tempLoanInfo").html(`<table>
+        $("#tempLoanInfo").html(`<style>
+    /* Style for the table container */
+    div.table-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Style for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    /* Style for the table header */
+    th {
+        background-color: #007BFF;
+        color: white;
+        text-align: left;
+        padding: 10px;
+    }
+
+    /* Style for the table rows */
+    tr {
+        border-bottom: 1px solid #ccc;
+    }
+
+    /* Style for the table data cells */
+    td {
+        padding: 10px;
+    }
+
+    /* Style for the buttons */
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+</style>
+
+        
+        <table>
                      <thead>
                             <tr>
                                 <th>EMI No.</th>
@@ -792,42 +1160,125 @@
     $("#root").on("click", "#repayBtn", function (e) {
         e.preventDefault();
 
-        let loanID = $('#rejectBtn').val();
-        let data = JSON.stringify({ Status: 'Rejected', LoanID: loanID })
-        $.ajax({
-            url: "https://loanappapi101.azurewebsites.net/api/Values/ApproveRejectLoanRequests",
-            type: "POST",
-            headers: { // Use 'headers', not 'header'
-                "Accept": "application/json;odata=verbose",
-                "Content-Type": "application/json;odata=verbose"
-            },
-            data: JSON.stringify(data),
-            contentType: "application/json",
-            dataType: "json",
-            success: function (response) {
-                // Handle the API response here
-                console.log(response);
+        let loanID = $('#repayBtn').val();
+        sessionStorage.setItem('selectedLoanID', loanID);
+        sessionStorage.setItem('BalanceAmount', document.getElementById('repayBtn').dataset.balance);
+        sessionStorage.setItem('EMI', document.getElementById('repayBtn').dataset.emi);
+        window.location.hash = '/RepayLoan'
+    });
 
-                if (response == "Success") {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Request Rejected Successfully!'
-                    }).then(() => {
-                        getAdminLoanRequest('Pending');
-                    });;
-                }
-                else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Something went wrong!'
-                    });
-                }
-            },
-            error: function (error) {
-                // Handle errors here
-                console.error("Error:", error);
-                reject(error);
+    $("#root").on("click", "#btnPayLoanCancel", function (e) {
+        e.preventDefault();
+        window.location.hash = '/UserLogin'
+    });
+
+    $("#root").on("click", "#btnPayLoan", function (e) {
+        e.preventDefault();
+
+        let LoanID = $('#payLoanID').val();
+        let RepayAmount = $('#payLoanAmount').val();
+
+        return new Promise((resolve, reject) => {
+            let data = JSON.stringify({
+                LoanID: LoanID,
+                RepayAmount: RepayAmount
+            });
+
+            RepayAmount = parseInt(RepayAmount); // Convert to an integer
+            const emiValue = parseInt(sessionStorage.getItem('EMI')); // Convert to an integer
+            const BalanceAmount = parseInt(sessionStorage.getItem('BalanceAmount')); // Convert to an integer
+
+            if (RepayAmount >= emiValue && BalanceAmount >= emiValue) {
+                $.ajax({
+                    url: "https://loanappapi101.azurewebsites.net/api/Values/RepayLoan",
+                    type: "POST",
+                    headers: { // Use 'headers', not 'header'
+                        "Accept": "application/json;odata=verbose",
+                        "Content-Type": "application/json;odata=verbose"
+                    },
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (response) {
+                        // Handle the API response here
+                        console.log(response);
+                        if (response == "Success") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'EMI amount paid successfully!'
+                            });
+                        }
+                        else if (response.startsWith("Please")) {
+                            let amount = response.split(':')[1];
+                            Swal.fire({
+                                icon: 'warning',
+                                title: `Please enter amount less than or equal to ${amount}`
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Something went wrong!'
+                            });
+                        }
+                        window.location.hash = '/UserLogin'
+                    },
+                    error: function (error) {
+                        // Handle errors here
+                        console.error("Error:", error);
+                        reject(error);
+                    }
+                });
             }
-        });
+            else if (BalanceAmount < emiValue && RepayAmount == BalanceAmount) {
+                $.ajax({
+                    url: "https://loanappapi101.azurewebsites.net/api/Values/RepayLoan",
+                    type: "POST",
+                    headers: { // Use 'headers', not 'header'
+                        "Accept": "application/json;odata=verbose",
+                        "Content-Type": "application/json;odata=verbose"
+                    },
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (response) {
+                        // Handle the API response here
+                        console.log(response);
+                        if (response == "Success") {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'EMI amount paid successfully!'
+                            });
+                        }
+                        else if (response.startsWith("Please")) {
+                            let amount = response.split(':')[1];
+                            Swal.fire({
+                                icon: 'warning',
+                                title: `Please enter amount less than or equal to ${amount}`
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Something went wrong!'
+                            });
+                        }
+                        window.location.hash = '/UserLogin'
+                    },
+                    error: function (error) {
+                        // Handle errors here
+                        console.error("Error:", error);
+                        reject(error);
+                    }
+                });
+            }
+            else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: `Please enter proper amount!`
+                });
+            }
+            
+        })
     });
 });
